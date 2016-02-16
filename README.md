@@ -7,7 +7,7 @@ A Code Fellows 401 Weekend Assignment by [Natalie Chow](https://github.com/xxnat
 We used the bear server from class as our REST API, whose server is located at `lib/bear_server.js`. The server for the client side can be found at `server.js` in the root directory.
 
 ## Using React vs. Angular
-It is difficult to pinpoint features to compare between React and Angular since the two are vastly different. Angular is a framework for front-end MVC while React focuses on the view.
+It is difficult to pinpoint features to compare between React and Angular since the two are vastly different. Angular is a framework for front-end MVC while React is only the view layer.
 
 For a basic setup in Angular, you'd need an application, a controller, and any number of directives you need. React, on the other hand, relies on classes (or components). Each class must include a `render` function in addition to any helper functions.
 
