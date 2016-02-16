@@ -11,6 +11,7 @@ describe('the bears api', () => {
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       done();
+      server.close();
     });
   });
 
@@ -31,8 +32,7 @@ describe('the bears api', () => {
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
-        expect(res.body.name).to.eql('test bear');
-        expect(res.body).to.have.property('_id');
+        expect(res.body.msg).to.eql('success posting bear');
         done();
       });
   });
@@ -52,7 +52,7 @@ describe('the bears api', () => {
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
-          expect(res.body.msg).to.eql('success');
+          expect(res.body.msg).to.eql('success updating bear');
           done();
         });
     });
@@ -63,7 +63,7 @@ describe('the bears api', () => {
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
-          expect(res.body.msg).to.eql('success');
+          expect(res.body.msg).to.eql('success deleting bear');
           done();
         });
     });
