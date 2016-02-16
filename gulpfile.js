@@ -3,7 +3,7 @@ const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 const webpack = require('webpack-stream');
 
-var files = ['**/*.js', '!node_modules/*', '!**/db/*'];
+var files = ['**/*.js', '!**/node_modules/*', '!**/db/*', '!**/build/*'];
 
 gulp.task('eslint', () => {
   return gulp.src(files)
