@@ -10,12 +10,12 @@ const Bear = require(__dirname + '/../models/bear');
 describe('the bears api', () => {
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
-      done();
       server.close();
+      done();
     });
   });
 
-  it('should be able to retrieve all our bears', (done) => {
+  it('should be able to GET all our bears', (done) => {
     chai.request('localhost:3000')
       .get('/api/bears')
       .end((err, res) => {
@@ -37,7 +37,7 @@ describe('the bears api', () => {
       });
   });
 
-  describe('rest requests that require a bear alread in db', () => {
+  describe('rest requests that require a bear already in db', () => {
     beforeEach((done) => {
       Bear.create({name: 'test bear'}, (err, data) => {
         this.testBear = data;
@@ -45,7 +45,7 @@ describe('the bears api', () => {
       });
     });
 
-    it('should be able to update a bear', (done) => {
+    it('should be able to UPDATE a bear', (done) => {
       chai.request('localhost:3000')
         .put('/api/bears/' + this.testBear._id)
         .send({name: 'new bear name'})
@@ -57,7 +57,7 @@ describe('the bears api', () => {
         });
     });
 
-    it('should be able to delete a bear', (done) => {
+    it('should be able to DELETE a bear', (done) => {
       chai.request('localhost:3000')
         .delete('/api/bears/' + this.testBear._id)
         .end((err, res) => {
